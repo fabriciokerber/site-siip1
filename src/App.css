@@ -1,9 +1,35 @@
 #root {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+}
+
+
+
+.terms-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terms-page h1, .terms-page h2, .terms-page h3, .terms-page h4, .terms-page h5, .terms-page h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.terms-page p {
+  margin-bottom: 1em;
+}
+
+.terms-page ul, .terms-page ol {
+  margin-bottom: 1em;
+  padding-left: 40px;
+}
+
+.terms-page li {
+  margin-bottom: 0.5em;
 }
