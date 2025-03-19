@@ -1,13 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { WhatsAppOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
-import { Layout, Steps, Input, Button, Spin } from "antd";
+import { Layout, Steps, Input, Button, Spin, Carousel } from "antd";
 import axios from "axios";
 import "antd/dist/reset.css";
 
 import logo_top from './assets/siip_white_retangulo.png';
 
 const { Header, Content, Footer } = Layout;
-const { Step } = Steps;
+const services = [
+  { title: "Análise de Dados Inteligente", description: "Transformamos dados em insights acionáveis com ferramentas de análise preditiva e machine learning." },
+  { title: "Automação de Processos", description: "Otimizamos operações com sistemas automatizados que reduzem custos e aumentam a eficiência." },
+  { title: "Soluções Personalizadas em IA", description: "Desenvolvemos modelos de IA sob medida para resolver problemas específicos do seu negócio." },
+  { title: "Consultoria em Transformação Digital", description: "Ajudamos sua empresa a adotar tecnologias emergentes e se preparar para o futuro." },
+  { title: "Expertise em IA", description: "Nossa equipe é composta por especialistas em inteligência artificial, machine learning e ciência de dados." },
+  { title: "Inovação Contínua", description: "Estamos sempre à frente das tendências tecnológicas para oferecer o que há de mais moderno." }
+];
+
+const contentStyle: React.CSSProperties = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
 
 const LandingPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -76,6 +91,20 @@ const LandingPage: React.FC = () => {
         <section style={{ marginBottom: "50px", color: "#fff" }}>
           {loading ? <Spin size="large" /> : <h1 dangerouslySetInnerHTML={{ __html: randomPhrase }}></h1>}
         </section>
+        
+        <section style={{ marginBottom: "50px", maxWidth: "800px", marginLeft: "auto", marginRight: "auto", color:"#fff" }}>
+          <Carousel autoplay style={{ padding: "20px", background: "#364d79", borderRadius: "10px", color:"#fff",  textAlign: "center" }}>
+            {services.map((service, index) => (
+              <div key={index} style={{ padding: "20px", background: "#364d79", borderRadius: "10px", color:"#fff",  textAlign: "center" }}>
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </Carousel>
+        </section>
+        
+        
+  
         <section style={{ background: "#fff", padding: "30px", borderRadius: "10px", color: "#000" }}>
           <Steps current={currentStep} labelPlacement="vertical" items={[
             { title: "Nome", icon: <UserOutlined style={{ color: "#e18b36" }} /> },
